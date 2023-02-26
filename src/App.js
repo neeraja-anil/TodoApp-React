@@ -3,7 +3,7 @@
 import React from 'react';
 import './App.css';
 
-import { useState } from 'react';
+import { useState} from 'react';
 
 
 
@@ -39,7 +39,7 @@ function App() {
                       return obj2
                     }))
 
-                  }} value={value.status} type="checkbox" name="" id="check" />
+                  }} value={value.status} type="checkbox" name="" id="check" checked={value.status} />
                   <label><p>{value.text}</p></label>
 
                 </div>
@@ -54,7 +54,7 @@ function App() {
                       }
                       return value
                     }))
-                  }} className="fas fa-times"></i>
+                  }} className="fas fa-times" ></i>
                 </div>
 
 
@@ -78,18 +78,16 @@ function App() {
 
                     <div className="left">
                       <input type="checkbox" value={value.status} onChange={(e) => {
-                        console.log(e.target.checked)
-                        console.log(value)
+        
                         setTodos(toDos.filter(obj2 => {
                           if (obj2.id === value.id) {
-                            console.log(e.target.checked)
                             obj2.status = e.target.checked
 
                           }
                           return obj2
 
                         }))
-                      }} checked />
+                      }} checked={value.status} />
                       <label><p>{value.text}</p></label>
                       <p className='left'>{new Date().toLocaleTimeString()}</p>
                     </div>
